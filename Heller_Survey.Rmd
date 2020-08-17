@@ -1,0 +1,174 @@
+---
+title: "Survey of Affect, Cognition, and Behavior"
+output: html_document
+---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align = "left")
+df <- read.csv(ipath, stringsAsFactors=FALSE)
+options(knitr.duplicate.label = "allow")
+
+library(rmarkdown)
+library(rsconnect)
+library(ggplot2)
+```
+<br>
+
+## How **happy** are you right now?
+<br>
+```{r plot, echo = FALSE, message = FALSE, warning =FALSE}
+
+ggplot(df, aes(x=X, y=Happy)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se=FALSE, span = 1.6, size = 1.8) +
+  labs(x= "Time (days)", y = "Happiness rating") +
+  ylim(0,100) +
+  theme_classic() + theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14))
+
+```
+<br><br><br>
+
+## How **sad** are you right now? 
+<br>
+```{r plot2, echo=FALSE, message = FALSE, warning =FALSE}
+ggplot(df, aes(x=X, y=Sad)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se=FALSE, span = 1.6, size = 1.8) +
+  labs(x= "Time (days)", y = "Sadness rating") +
+  ylim(0,100) +
+  theme_classic()+ theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14))
+```
+<br><br><br>
+
+## How **stressed** are you right now?
+<br>
+```{r plot3, echo=FALSE, message = FALSE, warning =FALSE}
+ggplot(df, aes(x=X, y=Stressed)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se=FALSE, span = 1.6, size = 1.8) +
+  labs(x= "Time (days)", y = "Stress rating") +
+  ylim(0,100) +
+  theme_classic()+ theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14))
+```
+<br><br><br>
+
+## How **relaxed** are you right now?
+<br>
+```{r plot4, echo=FALSE, message = FALSE, warning =FALSE}
+ggplot(df, aes(x=X, y=Relaxed)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se=FALSE, span = 1.6, size = 1.8) +
+  labs(x= "Time (days)", y = "Relaxation rating") +
+  ylim(0,100) +
+  theme_classic()+ theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14))
+```
+<br><br><br>
+
+## How much are you **overthinking** right now?
+<br>
+```{r plot5, echo=FALSE, message = FALSE, warning =FALSE}
+ggplot(df, aes(x=X, y=Overthinking)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se=FALSE, span = 1.6, size = 1.8) +
+  labs(x= "Time (days)", y = "Overthinking rating") +
+  ylim(0,100) +
+  theme_classic()+ theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14))
+```
+<br><br><br>
+
+## How **optimistic** are you right now?
+<br>
+```{r plot6, echo=FALSE, message = FALSE, warning =FALSE}
+ggplot(df, aes(x=X, y=Optimistic)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se=FALSE, span = 1.6, size = 1.8) +
+  labs(x= "Time (days)", y = "Optimism rating") +
+  ylim(0,100) +
+  theme_classic()+ theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14))
+```
+<br><br><br>
+
+## How **self conscious** are you right now?
+<br>
+```{r plot7, echo=FALSE, message = FALSE, warning =FALSE}
+ggplot(df, aes(x=X, y=Self.Conscious)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se=FALSE, span = 1.6, size = 1.8) +
+  labs(x= "Time (days)", y = "Self consciousness rating") +
+  ylim(0,100) +
+  theme_classic()+ theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14))
+```
+<br><br><br>
+
+## How much are you **thinking about the past** right now?
+<br>
+```{r plot8, echo=FALSE, message = FALSE, warning =FALSE}
+ggplot(df, aes(x=X, y=Past)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se=FALSE, span = 1.6, size = 1.8) +
+  labs(x= "Time (days)", y = "Past rating") +
+  ylim(0,100) +
+  theme_classic()+ theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14))
+```
+<br><br><br>
+
+## How much are you **socializing** right now?
+<br>
+```{r plot9, echo=FALSE, message = FALSE, warning =FALSE}
+ggplot(df, aes(x=X, y=Socializing)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se=FALSE, span = 1.6, size = 1.8) +
+  labs(x= "Time (days)", y = "Social rating") +
+  ylim(0,100) +
+  theme_classic()+ theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14))
+```
+<br><br><br>
+
+## How much are you **working out** right now?
+<br>
+```{r plot10, echo=FALSE, message = FALSE, warning =FALSE}
+ggplot(df, aes(x=X, y=WorkingOut)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se=FALSE, span = 1.6, size = 1.8) +
+  labs(x= "Time (days)", y = "Work out rating") +
+  ylim(0,100) +
+  theme_classic()+ theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14))
+```
+<br><br><br>
+
+## How much are you **laughing** right now?
+<br>
+```{r plot11, echo=FALSE, message = FALSE, warning =FALSE}
+ggplot(df, aes(x=X, y=Laughing)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se=FALSE, span = 1.6, size = 1.8) +
+  labs(x= "Time (days)", y = "Laughter rating") +
+  ylim(0,100) +
+  theme_classic()+ theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14))
+```
+<br><br><br>
+
+## How much are you **procrastinating** right now?
+<br>
+```{r plot12, echo=FALSE, message = FALSE, warning =FALSE}
+ggplot(df, aes(x=X, y=Procrastinating)) + 
+  geom_point() + 
+  geom_smooth(method = "loess", se=FALSE, span = 1.6, size = 1.8) +
+  labs(x= "Time (days)", y = "Procrastination rating") +
+  ylim(0,100) +
+  theme_classic()+ theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14))
+```
+
+
